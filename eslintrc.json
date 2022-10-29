@@ -1,0 +1,63 @@
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": { "project": ["./tsconfig.json"] },
+  "plugins": [
+      "@typescript-eslint",
+      "react"
+  ],
+  "ignorePatterns": ["node_modules"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "semi": "error",
+    "comma-dangle": ["error", "always-multiline"],
+    "react/jsx-boolean-value": "error",
+    "react/jsx-child-element-spacing": "error",
+    "react/jsx-closing-bracket-location": "error",
+    "react/jsx-closing-tag-location": "error",
+    "react/jsx-curly-brace-presence": "error",
+    "react/jsx-curly-newline": "error",
+    "react/jsx-curly-spacing": "error",
+    "react/jsx-equals-spacing": "error",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react/jsx-first-prop-new-line": "error",
+    "react/jsx-fragments": "error",
+    "react/jsx-handler-names": "error",
+    "react/jsx-indent": [2, 2],
+    "react/jsx-indent-props": "error",
+    "react/jsx-max-depth": "error",
+    "react/jsx-max-props-per-line": "error",
+    "react/jsx-newline": "error",
+    "react/jsx-no-bind": "error",
+    "react/jsx-no-constructed-context-values": "error",
+    "react/jsx-no-leaked-render": "error",
+    "react/jsx-no-script-url": "error",
+    "react/jsx-no-useless-fragment": "error",
+    "react/jsx-one-expression-per-line": [2, {"allow": "single-child"}],
+    "react/jsx-pascal-case": "error",
+    "react/jsx-props-no-multi-spaces": "error",
+    "react/jsx-props-no-spreading": "error",
+    "react/jsx-sort-props": "error",
+    "react/jsx-tag-spacing": "error",
+    "react/jsx-wrap-multilines": "error",
+    "react/no-access-state-in-setstate": "error",
+    "react/no-adjacent-inline-elements": "error",
+    "react/no-array-index-key": "error",
+    "react/no-danger": "error",
+    "react/no-invalid-html-attribute": "error",
+    "react/no-typos": "error",
+    "react/no-unsafe": "error",
+    "react/self-closing-comp": "error",
+    "react/prop-types": "off"
+  }
+}
