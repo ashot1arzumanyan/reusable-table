@@ -1,4 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
+
 import { GlobalState } from "../store";
 
 class UserSelectors {

@@ -4,7 +4,9 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": { "project": ["./tsconfig.json"] },
@@ -16,6 +18,10 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": true,
+      "node": true
     }
   },
   "rules": {
@@ -35,9 +41,7 @@
     "react/jsx-handler-names": "error",
     "react/jsx-indent": [2, 2],
     "react/jsx-indent-props": "error",
-    "react/jsx-max-depth": "error",
     "react/jsx-max-props-per-line": "error",
-    "react/jsx-newline": "error",
     "react/jsx-no-bind": "error",
     "react/jsx-no-constructed-context-values": "error",
     "react/jsx-no-leaked-render": "error",
@@ -66,6 +70,8 @@
         "message": "Use typed hooks `useAppDispatch` and `useAppSelector` instead."
       }
     ],
-    "react/prop-types": "off"
+    "import/order": ["warn", {"alphabetize": {"order": "asc"}, "newlines-between": "always"}],
+    "react/prop-types": "off",
+    "import/no-named-as-default": "off"
   }
 }
