@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 
+import optionSlice from './option/optionSlice';
 import userSlice from './user/userSlice';
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -8,6 +9,7 @@ const isDev = process.env.NODE_ENV !== 'production';
 const store = configureStore({
   reducer: {
     user: userSlice.reducer,
+    option: optionSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     if (isDev) {
