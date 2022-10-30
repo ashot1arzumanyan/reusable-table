@@ -18,8 +18,16 @@ class UserSelectors {
     },
   );
 
-  public static usersFilteredBySearch = createSelector(
+  public static usersByPage = createSelector(
     this.users,
+    PaginationSelectors.pagination,
+    (users, { page, pageContentAmount }) => {
+      return [...users].slice((page - 1) * pageContentAmount, page * pageContentAmount);
+    },
+  );
+
+  public static usersFilteredBySearch = createSelector(
+    this.usersByPage,
     SearchSelectors.search,
     (users, search) => {
       if (!search) {
@@ -36,7 +44,7 @@ class UserSelectors {
   );
 
   public static usersLength = createSelector(
-    this.usersFilteredBySearch,
+    this.users,
     (users) => users.length,
   );
 
@@ -67,14 +75,6 @@ class UserSelectors {
         return [...users].sort((a, b) => sortWithAscendingOrDescending(a.age, b.age));
       }
       return users;
-    },
-  );
-
-  public static usersByPage = createSelector(
-    this.usersSorted,
-    PaginationSelectors.pagination,
-    (users, { page, pageContentAmount }) => {
-      return [...users].slice((page - 1) * pageContentAmount, page * pageContentAmount);
     },
   );
 }
