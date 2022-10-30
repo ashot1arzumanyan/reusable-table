@@ -14,7 +14,6 @@
       "@typescript-eslint",
       "react"
   ],
-  "ignorePatterns": ["node_modules"],
   "settings": {
     "react": {
       "version": "detect"
@@ -23,6 +22,10 @@
       "typescript": true,
       "node": true
     }
+  },
+  "env": {
+    "node": true,
+    "browser": true
   },
   "rules": {
     "semi": "error",

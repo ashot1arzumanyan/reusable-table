@@ -1,3 +1,3 @@
-const getIsNumeric = (str: string) => !isNaN(+str);
+const getIsNumeric = (str: string) => !isNaN(+str) && !!parseFloat(str);
 
 export default getIsNumeric;
