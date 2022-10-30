@@ -19,4 +19,9 @@ export interface SearchState {
   search: string;
 }
 
+export interface PaginationState {
+  page: number;
+  pageContentAmount: number;
+}
+
 export type SortingValue = -1 | 0 | 1;

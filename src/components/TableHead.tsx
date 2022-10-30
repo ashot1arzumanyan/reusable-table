@@ -13,7 +13,6 @@ import TableHeadItem from "./TableHeadItem";
 const TableHead = () => {
   const sorting = useAppSelector(SortingSelectors.sorting);
   const dispatch = useAppDispatch();
-  console.log(sorting);
 
   const handleSetFirstNameSorting = () => {
     dispatch(changeFirstNameSorting());

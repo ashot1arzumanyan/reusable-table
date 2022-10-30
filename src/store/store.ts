@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 
+import paginationSlice from './pagination/paginationSlice';
 import searchSlice from './search/searchSlice';
 import sortingSlice from './sorting/sortingSlice';
 import userSlice from './user/userSlice';
@@ -12,6 +13,7 @@ const store = configureStore({
     user: userSlice.reducer,
     sorting: sortingSlice.reducer,
     search: searchSlice.reducer,
+    pagination: paginationSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     if (isDev) {

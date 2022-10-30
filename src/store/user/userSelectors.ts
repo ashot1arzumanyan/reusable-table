@@ -2,6 +2,7 @@ import { createSelector } from "@reduxjs/toolkit";
 
 import getIsNumeric from "../../util/helpers/getIsNumeric";
 import { sortNumbers, sortStrings } from "../../util/helpers/sortingHelpers";
+import PaginationSelectors from "../pagination/paginationSelectors";
 import SearchSelectors from "../search/searchSelectors";
 import SortingSelectors from "../sorting/sortingSelectors";
 import { GlobalState } from "../store";
@@ -34,6 +35,19 @@ class UserSelectors {
     },
   );
 
+  public static usersLength = createSelector(
+    this.usersFilteredBySearch,
+    (users) => users.length,
+  );
+
+  public static pagesCount = createSelector(
+    PaginationSelectors.pagination,
+    this.usersLength,
+    ({ pageContentAmount }, usersLength) => {
+      return Math.ceil(usersLength / pageContentAmount);
+    },
+  );
+
   public static usersSorted = createSelector(
     this.usersFilteredBySearch,
     SortingSelectors.firstName,
@@ -53,6 +67,14 @@ class UserSelectors {
         return [...users].sort((a, b) => sortWithAscendingOrDescending(a.age, b.age));
       }
       return users;
+    },
+  );
+
+  public static usersByPage = createSelector(
+    this.usersSorted,
+    PaginationSelectors.pagination,
+    (users, { page, pageContentAmount }) => {
+      return [...users].slice((page - 1) * pageContentAmount, page * pageContentAmount);
     },
   );
 }
