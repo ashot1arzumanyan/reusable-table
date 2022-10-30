@@ -26,6 +26,11 @@
   },
   "rules": {
     "semi": "error",
+    "no-console": "warn",
+    "no-multi-spaces": "error",
+    "no-trailing-spaces": "error",
+    "key-spacing": "error",
+    "spaced-comment": "error",
     "comma-dangle": ["error", "always-multiline"],
     "react/jsx-boolean-value": "error",
     "react/jsx-child-element-spacing": "error",

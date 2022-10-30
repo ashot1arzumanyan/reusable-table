@@ -22,7 +22,7 @@ const sortingSlice = createSlice({
     },
     changeLastNameSorting: (state: SortingState) => {
       return {
-        firstName:  0 as SortingValue,
+        firstName: 0 as SortingValue,
         lastName: getNextSortingValue(state.lastName) as SortingValue,
         age: 0 as SortingValue,
       };
