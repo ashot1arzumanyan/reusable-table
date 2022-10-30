@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 
-import optionSlice from './option/optionSlice';
+import sortingSlice from './sorting/sortingSlice';
 import userSlice from './user/userSlice';
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -9,7 +9,7 @@ const isDev = process.env.NODE_ENV !== 'production';
 const store = configureStore({
   reducer: {
     user: userSlice.reducer,
-    option: optionSlice.reducer,
+    sorting: sortingSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     if (isDev) {

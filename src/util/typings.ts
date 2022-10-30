@@ -9,12 +9,7 @@ export interface UserState {
   users: User[];
 }
 
-export interface OptionState {
-  sort: SortingOptions;
-  search: string;
-}
-
-export interface  SortingOptions {
+export interface SortingState {
   firstName: SortingValue;
   lastName: SortingValue;
   age: SortingValue;

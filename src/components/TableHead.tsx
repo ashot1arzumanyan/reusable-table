@@ -1,26 +1,30 @@
 import * as React from "react";
 
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import OptionSelectors from "../store/option/optionSelectors";
-import { setSortingOptions } from "../store/option/optionSlice";
-import getNextSortingValue from "../util/helpers/getNextSortingValue";
+import SortingSelectors from "../store/sorting/sortingSelectors";
+import {
+  changeFirstNameSorting,
+  changeLastNameSorting,
+  changeAgeSorting,
+} from "../store/sorting/sortingSlice";
 
 import TableHeadItem from "./TableHeadItem";
 
 const TableHead = () => {
-  const sorting = useAppSelector(OptionSelectors.sorting);
+  const sorting = useAppSelector(SortingSelectors.sorting);
   const dispatch = useAppDispatch();
+  console.log(sorting);
 
   const handleSetFirstNameSorting = () => {
-    dispatch(setSortingOptions({ firstName: getNextSortingValue(sorting.firstName) }));
+    dispatch(changeFirstNameSorting());
   };
 
   const handleSetLastNameSorting = () => {
-    dispatch(setSortingOptions({ lastName: getNextSortingValue(sorting.lastName) }));
+    dispatch(changeLastNameSorting());
   };
 
   const handleSetAgeSorting = () => {
-    dispatch(setSortingOptions({ age: getNextSortingValue(sorting.age) }));
+    dispatch(changeAgeSorting());
   };
 
   return (

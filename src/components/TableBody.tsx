@@ -4,8 +4,8 @@ import { useAppSelector } from "../store/hooks";
 import UserSelectors from "../store/user/userSelectors";
 
 const TableBody = () => {
-  const users = useAppSelector(UserSelectors.users);
-  console.log(users);
+  const users = useAppSelector(UserSelectors.usersSorted);
+
   return (
     <tbody>
       {users.map((user) => (

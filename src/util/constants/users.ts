@@ -1,6 +1,6 @@
-import { User } from "./typings";
+import { User } from "../typings";
 
-export const users: User[] = [
+const users: User[] = [
   {
     id: 1,
     firstName: "Kris",
@@ -32,3 +32,5 @@ export const users: User[] = [
     age: 51,
   },
 ];
+
+export default users;
