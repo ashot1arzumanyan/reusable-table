@@ -1,6 +1,8 @@
 import { createSelector } from "@reduxjs/toolkit";
 
+import getIsNumeric from "../../util/helpers/getIsNumeric";
 import { sortNumbers, sortStrings } from "../../util/helpers/sortingHelpers";
+import SearchSelectors from "../search/searchSelectors";
 import SortingSelectors from "../sorting/sortingSelectors";
 import { GlobalState } from "../store";
 
@@ -15,8 +17,25 @@ class UserSelectors {
     },
   );
 
-  public static usersSorted = createSelector(
+  public static usersFilteredBySearch = createSelector(
     this.users,
+    SearchSelectors.search,
+    (users, search) => {
+      if (!search) {
+        return users;
+      }
+
+      const searchIsNumeric = getIsNumeric(search);
+      if (searchIsNumeric) {
+        return users.filter((user) => String(user.age).startsWith(search));
+      }
+
+      return users.filter((user) => user.firstName.includes(search) || user.lastName.includes(search));
+    },
+  );
+
+  public static usersSorted = createSelector(
+    this.usersFilteredBySearch,
     SortingSelectors.firstName,
     SortingSelectors.lastName,
     SortingSelectors.age,

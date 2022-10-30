@@ -15,4 +15,8 @@ export interface SortingState {
   age: SortingValue;
 }
 
+export interface SearchState {
+  search: string;
+}
+
 export type SortingValue = -1 | 0 | 1;
