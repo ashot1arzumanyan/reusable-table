@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 
 import { useAppDispatch, useAppSelector } from "../store/hooks";
@@ -28,9 +29,12 @@ const Pagination = () => {
   const pagesCount = useAppSelector(UserSelectors.pagesCount);
   const { page } = useAppSelector(PaginationSelectors.pagination);
   const dispatch = useAppDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleChangePage = (nextPage: number) => () => {
     dispatch(setPage(nextPage));
+    searchParams.set('page', String(nextPage));
+    setSearchParams(searchParams);
   };
 
   return (

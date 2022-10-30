@@ -1,4 +1,5 @@
 import * as React from "react";
+import { BrowserRouter } from "react-router-dom";
 import styled from "styled-components";
 
 import Pagination from "./components/Pagination";
@@ -15,11 +16,13 @@ const Container = styled.div`
 
 const App = () => {
   return (
-    <Container>
-      <Search />
-      <Table />
-      <Pagination />
-    </Container>
+    <BrowserRouter>
+      <Container>
+        <Search />
+        <Table />
+        <Pagination />
+      </Container>
+    </BrowserRouter>
   );
 };
 
