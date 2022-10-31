@@ -4,7 +4,7 @@ const users: User[] = [
   {
     id: 1,
     firstName: "Kris",
-    lastName: "Lee",
+    lastName: "A",
     age: 20,
   },
   {
@@ -15,8 +15,8 @@ const users: User[] = [
   },
   {
     id: 3,
-    firstName: "denial",
-    lastName: "roast",
+    firstName: "Adam",
+    lastName: "Yeva",
     age: 46,
   },
   {
@@ -45,7 +45,7 @@ const users: User[] = [
   },
   {
     id: 8,
-    firstName: "deid",
+    firstName: "Daniel",
     lastName: "neo",
     age: 39,
   },
