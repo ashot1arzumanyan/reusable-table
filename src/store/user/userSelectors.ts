@@ -39,7 +39,10 @@ class UserSelectors {
         return users.filter((user) => String(user.age).startsWith(search));
       }
 
-      return users.filter((user) => user.firstName.includes(search) || user.lastName.includes(search));
+      return users.filter((user) => (
+        user.firstName.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+        || user.lastName.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+      ));
     },
   );
 
